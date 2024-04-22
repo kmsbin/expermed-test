@@ -32,6 +32,7 @@ migrate_working_dir/
 /build/
 *.g.dart
 *.config.dart
+pubspec.lock
 
 
 # Symbolication related
