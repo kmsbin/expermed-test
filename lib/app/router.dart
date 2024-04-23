@@ -1,8 +1,9 @@
-import 'package:expermed_test/app/ui/views/auth/sign_in.view.dart';
+import 'package:expermed_test/app/ui/views/auth/sign_in/sign_in.view.dart';
 import 'package:expermed_test/app/ui/views/user_info/user_info.view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'domain/entities/medical_examination.dart';
+import 'ui/views/auth/sign_up/sign_up.view.dart';
 import 'ui/views/medical_examinations/medical_examination.view.dart';
 
 final goRouter = createGoRouter();
@@ -14,6 +15,10 @@ GoRouter createGoRouter({String initialLocation = '/sign-in'}) => GoRouter(
     GoRoute(
       path: '/sign-in',
       builder: (_, __) => const SignInView(key: Key('sign_in'),),
+    ),
+    GoRoute(
+      path: '/sign-up',
+      builder: (_, __) => const SignUpView(key: Key('sign_up'),),
     ),
     GoRoute(
       path: '/medical-examinations',

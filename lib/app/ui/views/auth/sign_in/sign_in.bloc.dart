@@ -4,7 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:expermed_test/app/domain/exceptions/failed_sign_in_exception.dart';
 import 'package:expermed_test/app/domain/repositories/auth_repository.dart';
 import 'package:expermed_test/app/domain/usecases/auth_usecase.dart';
-import 'package:expermed_test/app/ui/views/auth/sign_in.events.dart';
+import 'package:expermed_test/app/ui/views/auth/sign_in/sign_in.events.dart';
 import 'package:expermed_test/injector.dart';
 
 

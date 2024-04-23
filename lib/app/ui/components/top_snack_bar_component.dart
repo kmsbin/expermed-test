@@ -109,15 +109,20 @@ class _TopSnackBarState extends State<TopSnackBar> with TickerProviderStateMixin
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(kPadding).copyWith(left: kPadding*2 + _iconSize),
-                    child: SizedBox(
-                      height: _iconSize,
-                      child: Center(
-                        child: Text(
-                          widget.message,
-                          style: const TextStyle(fontSize: 14),
-                          overflow: TextOverflow.ellipsis,
+                  SizedBox(
+                    height: kPadding * 2 + _iconSize,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: kPadding*2 + _iconSize, right: kPadding),
+                      child: SizedBox(
+                        height: _iconSize,
+                        child: Center(
+                          child: Text(
+                            widget.message,
+                            style: const TextStyle(fontSize: 15),
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 2,
+                            textAlign: TextAlign.center,
+                          ),
                         ),
                       ),
                     ),

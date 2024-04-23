@@ -22,7 +22,10 @@ class MedicalExaminationRepositoryImpl implements MedicalExaminationRepository {
 
   MedicalExaminationEntity _generateFakeUserEntity(DateTime date) => MedicalExaminationEntity(
       id: faker.randomGenerator.integer(1000),
-      dateTime: date,
+      dateTime: date.copyWith(
+        hour: faker.randomGenerator.integer(23),
+        minute: faker.randomGenerator.integer(60),
+      ),
       user: UserEntity(
         id: faker.randomGenerator.integer(1000),
         name: faker.person.name(),

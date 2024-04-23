@@ -33,7 +33,7 @@ migrate_working_dir/
 *.g.dart
 *.config.dart
 pubspec.lock
-
+cognito_keys.json
 
 # Symbolication related
 app.*.symbols

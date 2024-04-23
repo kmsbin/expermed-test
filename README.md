@@ -12,5 +12,5 @@ Essa é a implementação do teste
 
 ### Credenciais
 
-Email: daniel.becker@expermed.com \
-Senha: senha1234
+Email: usuarioteste@gmail.com \
+Senha: Senha1234!@

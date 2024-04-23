@@ -7,6 +7,7 @@ import 'injector.dart';
 
 void main() {
   configureDependencies();
+
   runApp(const HomeApp());
 }
 

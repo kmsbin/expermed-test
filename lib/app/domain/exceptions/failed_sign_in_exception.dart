@@ -3,3 +3,9 @@ class FailedSignInException implements Exception {
 
   const FailedSignInException(this.message);
 }
+
+class FailedSignUpException implements Exception {
+  final String message;
+
+  const FailedSignUpException(this.message);
+}
