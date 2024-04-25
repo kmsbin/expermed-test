@@ -30,4 +30,18 @@ class MedicalExaminationEntity {
     );
   }
 
+  @override
+  String toString() {
+    return '''
+MedicalExaminationEntity(
+  id: $id,
+  user: $user,
+  dateTime: $dateTime,
+  address: $address,
+  assessment: $assessment,
+  professionalId: $professionalId,,
+)
+    ''';
+  }
+
 }

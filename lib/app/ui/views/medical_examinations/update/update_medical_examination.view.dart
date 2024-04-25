@@ -19,13 +19,12 @@ class UpdateMedicalExamination extends StatefulWidget {
 }
 
 class _UpdateMedicalExaminationState extends State<UpdateMedicalExamination> {
-  late final MedicalExaminationEntity entity;
+  late final entity = widget.medicalExamination;
   final _formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
     super.initState();
-    entity = widget.medicalExamination;
   }
 
   @override
@@ -45,8 +44,8 @@ class _UpdateMedicalExaminationState extends State<UpdateMedicalExamination> {
         onTap: () {
           final state = _formKey.currentState!;
           if (!state.validate()) return;
-
-          context.pop();
+          state.save();
+          context.pop(entity);
         },
         title: const Text('Registrar'),
       ),

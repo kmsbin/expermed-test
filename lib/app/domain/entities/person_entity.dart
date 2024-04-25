@@ -6,4 +6,9 @@ class PersonEntity {
     required this.id,
     required this.name,
   });
+
+  @override
+  String toString() {
+    return 'PersonEntity(id: $id, name: $name)';
+  }
 }

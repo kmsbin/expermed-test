@@ -1,4 +1,5 @@
 import 'package:expermed_test/app/domain/entities/medical_examination.dart';
+import 'package:expermed_test/app/domain/entities/user_entity.dart';
 import 'package:expermed_test/app/ui/blocs/user_cache/user_cache.bloc.dart';
 import 'package:expermed_test/app/ui/blocs/user_cache/user_cache.events.dart';
 import 'package:expermed_test/app/ui/components/bottom_button.dart';
@@ -158,7 +159,7 @@ class _MedicalExaminationsViewState extends State<MedicalExaminationsView> {
         builder: (context, state) {
           return BottomButton(
             onTap: state is FilledUserCacheState
-              ? () => context.push('/create-medical-examination', extra: (state.userEntity, DateTime.now()))
+              ? () => _registerExamination(state.userEntity)
               : null,
             title: const Text('Cadastrar'),
           );
@@ -167,13 +168,13 @@ class _MedicalExaminationsViewState extends State<MedicalExaminationsView> {
     );
   }
 
-  Future<void> _registerExamination(MedicalExaminationEntity medicalExamination) async {
+  Future<void> _registerExamination(UserEntity userEntity) async {
     final result = await context.push<MedicalExaminationEntity>(
       '/create-medical-examination',
-      extra: (medicalExamination, _calendarBloc.state.date),
+      extra: (userEntity, _calendarBloc.state.date),
     );
     if (result == null) return;
-
+    print(result);
     _medicalExamBloc.add(AddMedicalExaminationsState(result));
   }
 

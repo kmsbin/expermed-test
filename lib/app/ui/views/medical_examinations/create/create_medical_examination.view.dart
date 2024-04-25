@@ -49,8 +49,8 @@ class _CreateMedicalExaminationState extends State<CreateMedicalExamination> {
         onTap: () {
           final state = _formKey.currentState!;
           if (!state.validate()) return;
-
-          context.pop();
+          state.save();
+          context.pop(entity);
         },
         title: const Text('Registrar'),
       ),

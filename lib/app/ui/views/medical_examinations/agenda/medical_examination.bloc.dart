@@ -34,10 +34,10 @@ class MedicalExaminationsBloc extends Bloc<MedicalExaminationsEvent, MedicalExam
 
   FutureOr<void> _addExamination(AddMedicalExaminationsState event, Emitter<MedicalExaminationsState> emit) async {
     if (state case FilledMedicalExaminationsState(:var data)) {
-      data.add(event.data);
       data = [...data, event.data]
         .sorted((a, b) => a.dateTime.compareTo(b.dateTime))
         .toList();
+
       emit(FilledMedicalExaminationsState(data));
       return;
     }
@@ -45,6 +45,8 @@ class MedicalExaminationsBloc extends Bloc<MedicalExaminationsEvent, MedicalExam
   }
 
   FutureOr<void> _refreshExamination(RefreshMedicalExaminationsEvent event, Emitter<MedicalExaminationsState> emit) {
-    emit(state);
+    if (state case FilledMedicalExaminationsState(:var data)) {
+      emit(FilledMedicalExaminationsState(data));
+    }
   }
 }

@@ -75,21 +75,10 @@ class MedicalExaminationForm extends StatelessWidget {
             GradientBorder(
               contentStartGradient: _defaultStartGradientColor,
               child: GestureDetector(
-                onTap: () async {
-                  final time = await showTimePicker(
-                    context: context,
-                    initialTime: TimeOfDay.fromDateTime(entity.dateTime),
-                  );
-                  if (time == null) return;
-
-                  entity.dateTime = entity.dateTime.copyWith(
-                    hour: time.hour,
-                    minute: time.minute,
-                  );
-                  dateTextController.text = DateFormat.Hm().format(entity.dateTime);
-                },
+                onTap: () => _setDateTime(context),
                 child: AbsorbPointer(
                   child: TextFormField(
+                    readOnly: true,
                     controller: dateTextController,
                     decoration: _defaultInputDecoration.copyWith(hintText: 'Data'),
                   ),
@@ -100,5 +89,19 @@ class MedicalExaminationForm extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<void> _setDateTime(BuildContext context) async {
+    final time = await showTimePicker(
+      context: context,
+      initialTime: TimeOfDay.fromDateTime(entity.dateTime),
+    );
+    if (time == null) return;
+
+    entity.dateTime = entity.dateTime.copyWith(
+      hour: time.hour,
+      minute: time.minute,
+    );
+    dateTextController.text = DateFormat.Hm().format(entity.dateTime);
   }
 }
