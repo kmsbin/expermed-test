@@ -1,0 +1,1 @@
+const apiUrl = 'https://661fc0a416358961cd955f56.mockapi.io/api/v1';

@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:expermed_test/app/domain/entities/medical_examination.dart';
 import 'package:expermed_test/app/domain/entities/service_address.dart';
-import 'package:expermed_test/app/domain/entities/user_entity.dart';
+import 'package:expermed_test/app/domain/entities/person_entity.dart';
 import 'package:expermed_test/app/domain/repositories/medical_examination_repository.dart';
 import 'package:expermed_test/app/router.dart';
 import 'package:expermed_test/injector.dart';
@@ -75,12 +75,13 @@ void main() {
 
 MedicalExaminationEntity _generateMedicalExamination(int id) {
   return MedicalExaminationEntity(
-    id: id,
-    user: UserEntity(
+    id: id.toString(),
+    user: PersonEntity(
       id: id,
       name: 'user',
     ),
     dateTime: DateTime.now(),
-    address: const ServiceAddressEntity(city: '', state: '', street: ''),
+    address: ServiceAddressEntity(city: '', state: '', street: '', number: 0),
+    assessment: '',
   );
 }

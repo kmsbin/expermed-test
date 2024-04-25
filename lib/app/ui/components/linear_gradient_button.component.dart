@@ -15,7 +15,7 @@ class LinearGradientButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-      key: const Key('sign_in_button'),
+      // key: const Key('sign_in_button'),
       onPressed: onPressed,
       padding: EdgeInsets.zero,
       shape: RoundedRectangleBorder(

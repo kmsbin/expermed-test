@@ -9,6 +9,22 @@ class GetExaminationsByDayEvent extends MedicalExaminationsEvent {
   const GetExaminationsByDayEvent(this.dateTime);
 }
 
+class RemoveExaminationsByDayEvent extends MedicalExaminationsEvent {
+  final MedicalExaminationEntity data;
+  const RemoveExaminationsByDayEvent(this.data);
+}
+
+class AddMedicalExaminationsState extends MedicalExaminationsEvent {
+  final MedicalExaminationEntity data;
+
+  const AddMedicalExaminationsState(this.data);
+}
+
+class RefreshMedicalExaminationsEvent extends MedicalExaminationsEvent {
+  const RefreshMedicalExaminationsEvent();
+}
+
+
 class MedicalExaminationsState {
   const MedicalExaminationsState();
 }
@@ -18,6 +34,7 @@ class EmptyMedicalExaminationsState extends MedicalExaminationsState {
 }
 
 class FilledMedicalExaminationsState extends MedicalExaminationsState {
+
   final List<MedicalExaminationEntity> data;
 
   const FilledMedicalExaminationsState(this.data);

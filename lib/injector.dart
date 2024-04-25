@@ -12,9 +12,9 @@ final getIt = GetIt.instance;
 @InjectableInit()
 void configureDependencies() {
   getIt.init();
-  if (cognitoUserPoolId.isEmpty) {
-    getIt.registerFactory<AuthRepository>(() => AuthRepositoryImpl());
-  } else {
-    getIt.registerFactory<AuthRepository>(() => AuthRepositoryCognito());
-  }
+  // if (cognitoUserPoolId.isEmpty) {
+  //   getIt.registerFactory<AuthRepository>(() => AuthRepositoryImpl());
+  // } else {
+  //   getIt.registerFactory<AuthRepository>(() => AuthRepositoryCognito());
+  // }
 }

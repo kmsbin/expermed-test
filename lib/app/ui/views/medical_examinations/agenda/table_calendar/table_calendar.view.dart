@@ -1,17 +1,19 @@
-import 'package:expermed_test/app/ui/views/medical_examinations/table_calendar/table_calendar.bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:collection/collection.dart';
 
+import 'table_calendar.bloc.dart';
 import 'table_calendar.events.dart';
 
 class TableCalendarComponent extends StatefulWidget {
+  final TableCalendarBloc tableCalendarBloc;
   final DateTime date;
   final void Function(DateTime date) onDaySelected;
   
   const TableCalendarComponent({
+    required this.tableCalendarBloc,
     required this.date, 
     required this.onDaySelected,
     super.key,
@@ -28,7 +30,7 @@ class _TableCalendarComponentState extends State<TableCalendarComponent> {
   @override
   void initState() {
     super.initState();
-    tableCalendarBloc = TableCalendarBloc();
+    tableCalendarBloc = widget.tableCalendarBloc;
     tableCalendarBloc.add(
       GetMonthCountOfServicesTableMedicalExaminationsEvent(
         currentDate: DateTime.now(),

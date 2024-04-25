@@ -1,7 +1,9 @@
 import 'package:expermed_test/app/domain/entities/medical_examination.dart';
-import 'package:expermed_test/app/domain/entities/user_entity.dart';
+import 'package:expermed_test/app/domain/entities/person_entity.dart';
+import 'package:expermed_test/app/ui/constants/colors.dart';
 import 'package:expermed_test/app/ui/constants/spacing.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 
 class UserInfoView extends StatelessWidget {
@@ -13,7 +15,7 @@ class UserInfoView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff1f2733),
+      backgroundColor: appBackgroundColor,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         title: Text('${timeFormatter(serviceData.dateTime)} - ${serviceData.user.name}'),
@@ -22,6 +24,12 @@ class UserInfoView extends StatelessWidget {
           onPressed: Navigator.of(context).pop,
           icon: const Icon(Icons.arrow_back_ios_new_rounded),
         ),
+        actions: [
+          IconButton(
+            onPressed: () => context.push('/update-medical-examination', extra: serviceData),
+            icon: const Icon(Icons.edit),
+          ),
+        ],
       ),
       body: Container(
         decoration: const BoxDecoration(
@@ -40,7 +48,7 @@ class UserInfoView extends StatelessWidget {
                 Text('Cidade: ${serviceData.address.city}'),
                 Text('Estado: ${serviceData.address.state}'),
                 Text('Rua: ${serviceData.address.street}'),
-                Text('Número: ${serviceData.id}'),
+                Text('Número: ${serviceData.address.number}'),
               ]
             ),
           ),

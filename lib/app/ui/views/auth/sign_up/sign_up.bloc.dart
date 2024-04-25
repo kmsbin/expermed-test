@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:expermed_test/app/domain/exceptions/failed_sign_in_exception.dart';
 import 'package:expermed_test/app/domain/repositories/auth_repository.dart';
+import 'package:expermed_test/app/domain/repositories/cache_repository.dart';
 import 'package:expermed_test/app/domain/usecases/auth_usecase.dart';
 import 'package:expermed_test/injector.dart';
 
@@ -10,7 +11,7 @@ import 'sign_up.events.dart';
 
 
 class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
-  final _signUpUseCase = AuthUsecase(getIt.get<AuthRepository>());
+  final _signUpUseCase = AuthUsecase(getIt.get<AuthRepository>(), getIt.get<CacheRepository>());
 
   SignUpBloc([super.initialState = const EmptySignUpState()]) {
     on(_sendSignUpRequest);

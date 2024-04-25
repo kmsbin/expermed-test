@@ -3,10 +3,11 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i3;
+import 'dart:async' as _i4;
 
+import 'package:expermed_test/app/domain/entities/user_entity.dart' as _i2;
 import 'package:expermed_test/app/domain/repositories/auth_repository.dart'
-    as _i2;
+    as _i3;
 import 'package:mockito/mockito.dart' as _i1;
 
 // ignore_for_file: type=lint
@@ -22,16 +23,26 @@ import 'package:mockito/mockito.dart' as _i1;
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
 
+class _FakeUserEntity_0 extends _i1.SmartFake implements _i2.UserEntity {
+  _FakeUserEntity_0(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
 /// A class which mocks [AuthRepository].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockAuthRepository extends _i1.Mock implements _i2.AuthRepository {
+class MockAuthRepository extends _i1.Mock implements _i3.AuthRepository {
   MockAuthRepository() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i3.Future<void> sendSignInRequest(
+  _i4.Future<_i2.UserEntity> sendSignInRequest(
     String? email,
     String? password,
   ) =>
@@ -43,12 +54,20 @@ class MockAuthRepository extends _i1.Mock implements _i2.AuthRepository {
             password,
           ],
         ),
-        returnValue: _i3.Future<void>.value(),
-        returnValueForMissingStub: _i3.Future<void>.value(),
-      ) as _i3.Future<void>);
+        returnValue: _i4.Future<_i2.UserEntity>.value(_FakeUserEntity_0(
+          this,
+          Invocation.method(
+            #sendSignInRequest,
+            [
+              email,
+              password,
+            ],
+          ),
+        )),
+      ) as _i4.Future<_i2.UserEntity>);
 
   @override
-  _i3.Future<void> sendSignUpRequest(
+  _i4.Future<void> sendSignUpRequest(
     String? email,
     String? password,
     String? name,
@@ -62,7 +81,7 @@ class MockAuthRepository extends _i1.Mock implements _i2.AuthRepository {
             name,
           ],
         ),
-        returnValue: _i3.Future<void>.value(),
-        returnValueForMissingStub: _i3.Future<void>.value(),
-      ) as _i3.Future<void>);
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
 }

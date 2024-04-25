@@ -16,7 +16,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   dio: ^5.4.3+1
   intl: ^0.18.1
-  json_annotation: ^4.8.1
+  json_annotation: ^4.9.0
   get_it: ^7.7.0
   flutter_bloc: ^8.1.5
   bloc: ^8.1.4
@@ -27,13 +27,14 @@ dependencies:
   faker: ^2.1.0
   collection: ^1.18.0
   amazon_cognito_identity_dart_2: ^3.6.4
+  shared_preferences: ^2.2.3
 dev_dependencies:
 
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.0
   build_runner: ^2.4.9
-  json_serializable: ^6.7.1
+  json_serializable: ^6.8.0
   injectable_generator: ^2.6.1
   mockito: ^5.4.4
 

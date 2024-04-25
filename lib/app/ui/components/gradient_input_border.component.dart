@@ -4,8 +4,13 @@ import 'gradient_container.component.dart';
 
 class GradientBorder extends StatelessWidget {
   final Widget child;
+  final Color contentStartGradient;
 
-  const GradientBorder({required this.child, super.key});
+  const GradientBorder({
+    required this.child,
+    this.contentStartGradient = Colors.white24,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +20,7 @@ class GradientBorder extends StatelessWidget {
         gradient: _getGradientConfig([Colors.white, Colors.transparent]),
         child: Container(
           decoration: BoxDecoration(
-            gradient: _getGradientConfig([Colors.white24, Colors.transparent]),
+            gradient: _getGradientConfig([contentStartGradient, Colors.transparent]),
             borderRadius: BorderRadius.circular(10),
           ),
           child: child,

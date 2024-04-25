@@ -121,6 +121,7 @@ class _SignInViewState extends State<SignInView> {
                           ),
                           const SizedBox(height: kPadding*2),
                           LinearGradientButton(
+                            key: const Key('sign_in_button'),
                             onPressed: () => _signInBloc.add(
                               SendSignInState(
                                 _emailTextController.text,
